@@ -38,7 +38,7 @@ app.get('/todos/:id', (req, res) => {
   //validate ID using isValid
     // 404 - send empty 
   if (!ObjectID.isValid(id)) {
-    return es.status(404).send();
+    return res.status(404).send();
   };
 
     // findById 
