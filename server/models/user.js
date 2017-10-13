@@ -74,7 +74,7 @@ UserSchema.statics.findByToken = function (token) {
 };
 
 UserSchema.pre('save', function (next) {
-  user = this;
+  var user = this;
 
   if (user.isModified('password')) {
     bcrypt.genSalt(10, (err, salt) => {
@@ -87,8 +87,8 @@ UserSchema.pre('save', function (next) {
     next();
   }
 
-})
+});
 
 var User = mongoose.model('User', UserSchema);
 
-module.exports = { User }
+module.exports = {User}
